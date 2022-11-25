@@ -3,7 +3,7 @@
 typedef struct Node
 {
     int data;
-    struct Node *next;
+    Node *next;
 } Node;
 
 class LinkedList
@@ -11,10 +11,8 @@ class LinkedList
     Node *head;
 
 public:
-    LinkedList(int x) {
-        this->head = new Node();
-        this->head->data = x;
-        this->head->next = NULL;
+    LinkedList() {
+        head = NULL;
     }
 
     Node *getHead() {
@@ -34,6 +32,12 @@ public:
         Node *temp = new Node();
         temp->data = x;
         temp->next = NULL;
+
+        if (this->head == NULL) {
+            this->head = temp;
+
+            return;
+        }
 
         Node *ptr = this->head;
         while (ptr->next != NULL) ptr = ptr->next;
@@ -76,7 +80,7 @@ public:
 };
 
 int main() {
-    LinkedList *l1 = new LinkedList(10);
+    LinkedList *l1 = new LinkedList();
     l1->addFirst(11);
     l1->addFirst(12);
     l1->addFirst(13);
@@ -90,4 +94,3 @@ int main() {
     l1->deleteLast();
     l1->printList();
 }
-//TYhis is a test

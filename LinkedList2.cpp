@@ -47,5 +47,3 @@ int main() {
     printList(head);
 
 }
-//asdasdas
-// MOre setset
